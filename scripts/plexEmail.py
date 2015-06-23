@@ -425,11 +425,14 @@ def createEmailHTML():
 
             <p style="display:none;font-size:0;">""" + config['msg_email_teaser'] + """</p>
             <!-- Full Width Image Header -->
-                    <table width="100%" style="background: #272727;">
-                        <tr><td><h1 style="width: 100%; text-align: center; background: #272727 !important;"><font style="color: #F9AA03;">""" + config['msg_header1'] + """</font></h1></td></tr>
-                        <tr><td><h2 style="width: 100%; text-align: center; background: #272727 !important;"><font style="color: #9A9A9A;">""" + config['msg_header2'] + """</font></h2></td></tr>
-                        <tr><td><h2 style="width: 100%; text-align: center; background: #272727 !important;"><font style="color: #9A9A9A;">""" + config['msg_header3'] + """</font></h2></td></tr>
-                    </table>
+                    <table align="center" width="50%" style="background: """ + config['msg_header_bgcolor'] + """;border-radius:20px;-moz-border-radius:20px;-webkit-border-radius:20px;">
+						<tr><td align="center"><img src=""" + config['msg_header_image'] + """></td></tr>
+                        <tr><td><h1 style="width: 100%; text-align: center; background: """ + config['msg_header_bgcolor'] + """ !important;"><font style="color: """ + config['msg_header1_color'] + """;">""" + config['msg_header1'] + """</font></h1></td></tr>
+                        <tr><td><h2 style="width: 100%; text-align: center; background: """ + config['msg_header_bgcolor'] + """ !important;"><font style="color: """ + config['msg_header2_color'] + """;">""" + config['msg_header2'] + """</font></h2></td></tr>
+						<tr><td><h2 style="width: 100%; text-align: center; background: """ + config['msg_header_bgcolor'] + """ !important;"><font style="color: """ + config['msg_header3_color'] + """;">""" + config['msg_header3'] + """</font></h2></td></tr>
+                    </table><br><br>
+
+            <!-- Page Content -->
 
             <!-- Page Content -->
             <div class="container">"""
@@ -454,7 +457,7 @@ def createEmailHTML():
             <footer>
                 <div class="row">
                     <div class="col-lg-12">
-                        <p>Copyright &copy; Jake Waldron 2015</p>
+                        <p><center>""" + config['msg_footer'] + """</center></p>
                     </div>
                 </div>
             </footer>
@@ -695,7 +698,7 @@ with con:
     if (config['msg_notice']):
       emailNotice = """<br/>&nbsp;<div style="border: 1px solid; padding:15px 0px 15px 0px; background-repeat: no-repeat; background-position: 10px center; color: #00529B; background-color: #BDE5F8;font-family:Arial, Helvetica, sans-serif; font-size:20px; text-align: center;">""" + config['msg_notice'] + """</div><br/>&nbsp;"""
       htmlNotice = """<div class="container"><hr class="featurette-divider"><div class="info">""" + config['msg_notice'] + """</div>"""
-    emailMovies = """<div class="headline" style="background: #FFF !important; padding-top: 0px !important;">
+    emailMovies = """<div class="headline" style="background: #FFF !important; padding-top: 0px !important;"><hr class="featurette-divider" id="movies-top2">
           <h1 style="width: 100%; text-align: center; background: #FFF !important;"><font style="color: #F9AA03;">""" + config['msg_new_movies_header'] + """</font></h1>
         </div><hr class="featurette-divider" id="movies-top"><br/>&nbsp;"""
     htmlMovies = """<hr class="featurette-divider" id="movies-top">
